@@ -1,0 +1,9 @@
+﻿  Assembling test.asm...
+test.asm(1): error A2044: invalid character in file
+test.asm(2): error A2008: syntax error : .
+test.asm(8): error A2008: syntax error : .
+test.asm(26): error A2008: syntax error : MessageBoxA
+test.asm(30): error A2008: syntax error : main
+test.asm(30): error A2088: END directive required at end of file
+test.asm(15): error A2009: syntax error in expression
+C:\Program Files\Microsoft Visual Studio\2022\Professional\MSBuild\Microsoft\VC\v170\BuildCustomizations\masm.targets(70,5): error MSB3721: выход из команды "ml64.exe /c /nologo /Zi /Fo"x64\Debug\test.obj" /W3 /errorReport:prompt  /Tatest.asm" с кодом "1".

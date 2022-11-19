@@ -1,0 +1,73 @@
+Microsoft (R) Macro Assembler (x64) Version 14.33.31629.0   09/17/22 01:39:10
+asm02.asm						     Page 1 - 1
+
+
+				.586P													;система команд (процессор Pentium)
+asm02.asm(1) : error A2008:syntax error : .
+				.MODEL FLAT, STDCALL									;модель памяти, соглашение о вызовах
+asm02.asm(2) : error A2008:syntax error : .
+				includelib kernel32.lib									;компановщику: компоновать с kernel32
+
+				ExitProcess PROTO : DWORD								;прототип функции для завершения процесса Windows
+				MessageBoxA PROTO : DWORD, : DWORD, : DWORD, : DWORD	;прототип API-функции MessageBoxA (вывод в окно)
+
+				.STACK 4096												;выделение стека объемом 4 мегабайта
+asm02.asm(8) : error A2008:syntax error : .
+
+ 00000000			.DATA													;сегмент данных
+ 00000000 00000001				a dd 1											
+ 00000004 00000002				b dd 2
+ 00000008 CD C0 C7 C2 C0			str0 db "НАЗВАНИЕ ОКНА", 0								
+	   CD C8 C5 20 CE
+	   CA CD C0 00
+ 00000016 D0 C5 C7 D3 CB			str1 db "РЕЗУЛЬТАТ = < >", 0
+	   DC D2 C0 D2 20
+	   3D 20 3C 20 3E
+	   00
+
+
+ 00000000			.CODE													;сегмент кода
+ 00000000			main PROC												;точка входа main
+ 00000000			start:													;метка
+ 00000000  8B 05 00000000 R			mov eax, a
+ 00000006  03 05 00000004 R			add eax, b
+ 0000000C  83 C0 30				add eax, 30h
+						
+ 0000000F  88 05 00000023 R			mov str1+13, al									;младшая половина подрегистра
+						
+						invoke MessageBoxA, 0, offset str1, offset str0, 0
+asm02.asm(26) : error A2008:syntax error : MessageBoxA
+
+ 00000015  6A 00				push 0											;код возврата процесса Windows (параметр ExitProcess)
+ 00000017  E8 00000000 E			call ExitProcess								;так завершается любой процесс Windows
+
+ 0000001C			main ENDP												;конец процедуры
+
+				end main
+Microsoft (R) Macro Assembler (x64) Version 14.33.31629.0   09/17/22 01:39:10
+asm02.asm						     Symbols 2 - 1
+
+
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+ExitProcess  . . . . . . . . . .	P 	 00000000 Length= 00000000 External
+MessageBoxA  . . . . . . . . . .	P 	 00000000 Length= 00000000 External
+main . . . . . . . . . . . . . .	P 	 00000000 _TEXT	Length= 0000001C Public
+  start  . . . . . . . . . . . .	L 	 00000000 _TEXT	
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+a  . . . . . . . . . . . . . . .	DWord	 00000000 _DATA	
+b  . . . . . . . . . . . . . . .	DWord	 00000004 _DATA	
+str0 . . . . . . . . . . . . . .	Byte	 00000008 _DATA	
+str1 . . . . . . . . . . . . . .	Byte	 00000016 _DATA	
+
+	   0 Warnings
+	   6 Errors

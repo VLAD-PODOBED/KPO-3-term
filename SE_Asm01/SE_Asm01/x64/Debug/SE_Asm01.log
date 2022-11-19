@@ -1,0 +1,1 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Professional\MSBuild\Microsoft\VC\v170\BuildCustomizations\marmasm.targets(56,5): error MSB8076: поддерживаются только платформы ARM, ARM64 и ARM64EC.

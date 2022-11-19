@@ -1,0 +1,6 @@
+﻿  Serializer.cpp
+D:\КПО\asm4\asm4\Serializer.h(26,1): warning C4267: =: преобразование из "size_t" в "unsigned char"; возможна потеря данных
+  main.cpp
+D:\КПО\asm4\asm4\Serializer.h(26,1): warning C4267: =: преобразование из "size_t" в "unsigned char"; возможна потеря данных
+  Создание кода...
+  asm4.vcxproj -> D:\КПО\asm4\x64\Debug\asm4.exe
